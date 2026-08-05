@@ -183,6 +183,7 @@ img.card-header-img {
     @apply w-full h-full object-cover;
 }
 
+
 .card-body {
     @apply p-4 flex flex-col gap-2;
 }
