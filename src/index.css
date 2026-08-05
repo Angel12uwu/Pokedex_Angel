@@ -184,6 +184,7 @@ img.card-header-img {
 }
 
 
+
 .card-body {
     @apply p-4 flex flex-col gap-2;
 }
