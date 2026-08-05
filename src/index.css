@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap");
+@import "tailwindcss";
+
+:root {
+    --red: #dc2626;
+    --red-deep: #991b1b;
+    --red-glow: #f87171;
+    --ball:#b91c1c;
+    --ink-900: #f5f5f5;
+    --ink-700: #d1d5db;
+    --ink-500: #9ca3af;
+    --surface: #1f1a1acc;
+    --surface-solid: #181313;
+    --line: #3f3a35;
+    --shadow-soft: 0 20px 40px -20px rgba(0,0,0,0.6);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    @apply min-h-dvh;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    color: var(--ink-900);
+    background:
+        radial-gradient(circle at 12% 8%, #ff3b3b2e 0%, #ff3b3b00 45%),
+        radial-gradient(circle at 85% 0%, #7f1d1d66 0%, #7f1d1d00 42%),
+        linear-gradient(180deg, #1a1212 0%, #0d0b0b 100%);
+    background-attachment: fixed;
+}
+
+#root {
+    @apply min-h-dvh;
+}
+
+.app-shell {
+    @apply min-h-dvh flex flex-col;
+}
+
+.app-header {
+    @apply sticky top-0 z-20;
+    backdrop-filter: blur(12px);
+    background: #140e0eb3;
+    border-bottom: 1px solid #3f2a2a;
+}
+
+.app-topbar {
+    @apply w-full max-w-6xl mx-auto px-4 py-3 flex flex-col gap-4 md:flex-row md:items-center md:justify-between;
+}
+
+.app-brand {
+    @apply m-0 text-2xl;
+    font-family: "Press Start 2P", monospace;
+    font-size: 1.15rem;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    text-shadow: 0 0 12px var(--red-glow), 0 0 30px rgba(220,38,38,0.6);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.app-brand::before {
+    content: "";
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    background: radial-gradient(circle at 50% 50%, #fff 0 22%, transparent 22% 100%),
+        linear-gradient(180deg, var(--red) 0 48%, #f8fafc 48% 50%, #222 50% 100%);
+    border-radius: 50%;
+    border: 2px solid #e5e7eb;
+    box-shadow: 0 0 14px rgba(220,38,38,0.55);
+    flex-shrink: 0;
+}
+
+.app-main {
+    @apply w-full max-w-6xl mx-auto px-4 py-7 flex-1;
+}
+
+.app-footer {
+    @apply w-full max-w-6xl mx-auto px-4 py-6 text-sm;
+    color: var(--ink-500);
+    border-top: 1px solid var(--line);
+}
+
+.nav-root {
+    @apply w-full md:w-auto;
+}
+
+.nav-list {
+    @apply m-0 p-0 list-none flex flex-wrap gap-2;
+}
+
+.nav-item {
+    @apply m-0;
+}
+
+.nav-link {
+    @apply inline-flex items-center px-3 py-2 rounded-full text-sm font-semibold transition-all duration-200;
+    color: var(--ink-700);
+    background: #241c1c;
+    border: 1px solid #3f2a2a;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    background: #2c2121;
+    box-shadow: 0 0 10px rgba(220,38,38,0.35);
+}
+
+.nav-link.is-active {
+    color: #ffffff;
+    border-color: transparent;
+    background: linear-gradient(120deg, var(--red) 0%, var(--red-deep) 100%);
+    box-shadow: 0 0 16px rgba(220,38,38,0.5);
+}
+
+.page {
+    @apply flex flex-col gap-6;
+}
+
+.page-section {
+    @apply rounded-2xl p-5;
+    background: var(--surface);
+    border: 1px solid #3f2a2a;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
+}
+
+.page-badge {
+    @apply inline-flex text-xs font-bold rounded-full px-3 py-1;
+    color: #fde68a;
+    background: #7c2d12aa;
+}
+
+.page-title {
+    @apply m-0 text-3xl md:text-4xl;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+}
+
+.page-text {
+    @apply m-0 text-base max-w-2xl;
+    color: var(--ink-700);
+}
+
+.home-hero {
+    @apply flex flex-col gap-3 rounded-2xl p-5;
+    background: var(--surface);
+    border: 1px solid #3f2a2a;
+    box-shadow: var(--shadow-soft);
+}
+
+.home-cards {
+    @apply flex flex-wrap gap-4;
+}
+
+.home-counters {
+    @apply flex flex-wrap gap-4;
+}
+
+.card {
+    @apply w-full max-w-sm rounded-2xl overflow-hidden;
+    border: 1px solid #3f2a2a;
+    background: var(--surface-solid);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0 22px rgba(220,38,38,0.35);
+}
+
+.card-header {
+    @apply h-48;
+}
+
+img.card-header-img {
+    @apply w-full h-full object-cover;
+}
+
+.card-body {
+    @apply p-4 flex flex-col gap-2;
+}
+
+.card-body p {
+    @apply m-0;
+    color: var(--ink-700);
+}
+
+.card-footer {
+    @apply px-4 py-3 text-sm font-semibold;
+    color: var(--ink-500);
+    border-top: 1px solid var(--line);
+}
+
+.counter {
+    @apply rounded-2xl p-4 min-w-32 flex flex-col items-center gap-3;
+    border: 1px solid #3f2a2a;
+    background: var(--surface-solid);
+    box-shadow: var(--shadow-soft);
+}
+
+.counter-value {
+    @apply text-3xl font-extrabold;
+    color: var(--ink-900);
+}
+
+.counter-button {
+    @apply w-11 h-11 rounded-xl text-xl font-bold border-0 cursor-pointer;
+    color: #ffffff;
+    background: linear-gradient(120deg, var(--red) 0%, var(--red-deep) 100%);
+    box-shadow: 0 4px 12px rgba(220,38,38,0.4);
+}
+
+.counter-button:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 16px rgba(220,38,38,0.6);
+}
+
+@media (max-width: 480px) {
+    .app-main {
+        @apply py-5;
+    }
+
+    .page-title {
+        @apply text-2xl;
+    }
+}
+
+/* ===== Pokemon List page ===== */
+.pokemonPage {
+    @apply flex flex-col gap-4 p-4 min-h-0;
+}
+
+.plTitle {
+    @apply m-0 text-2xl font-extrabold;
+    color: #fecaca;
+    text-shadow: 0 0 14px rgba(220,38,38,0.4);
+}
+
+.plLoading, .plError {
+    @apply text-center p-8 text-lg;
+    color: var(--ink-700);
+}
+
+.plError {
+    color: var(--red-glow);
+}
+
+.plList {
+    @apply flex-1 flex flex-row gap-4 flex-wrap;
+}
+
+.plList .PokemonCard {
+    @apply px-6 py-5 rounded-2xl border cursor-pointer font-bold capitalize;
+    background: var(--surface-solid);
+    border-color: #3f2a2a;
+    color: var(--ink-900);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+    min-width: 140px;
+    text-align: center;
+}
+
+.plList .PokemonCard:hover {
+    transform: translateY(-5px) scale(1.02);
+    border-color: var(--red);
+    box-shadow: 0 0 20px rgba(220,38,38,0.45);
+    color: #ffffff;
+}
+
+.pActions {
+    @apply flex flex-row gap-4 justify-center;
+}
+
+.pActions button {
+    @apply px-6 py-3 rounded-full font-bold border-0 cursor-pointer;
+    color: #ffffff;
+    background: linear-gradient(120deg, var(--red) 0%, var(--red-deep) 100%);
+    box-shadow: 0 4px 14px rgba(220,38,38,0.4);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pActions button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(220,38,38,0.6);
+}
+
+/* ===== Pokemon Detail page ===== */
+.pokemonDetailPage {
+    @apply flex flex-col gap-4 p-4;
+}
+
+.pdBackButton {
+    @apply self-start px-5 py-2 rounded-xl font-semibold cursor-pointer border transition-colors;
+    color: var(--ink-700);
+    background: #241c1c;
+    border-color: #3f2a2a;
+}
+
+.pdBackButton:hover {
+    color: #ffffff;
+    background: #2c2121;
+    box-shadow: 0 0 12px rgba(220,38,38,0.4);
+}
+
+.pdLoading, .pdError {
+    @apply text-center p-8 text-lg;
+    color: var(--ink-700);
+}
+
+.pdError {
+    color: var(--red-glow);
+}
+
+.pokemonDetail {
+    @apply flex flex-col gap-6;
+}
+
+.pdHeader {
+    @apply flex flex-col sm:flex-row items-center gap-6 p-6 rounded-2xl;
+    background: var(--surface);
+    border: 1px solid #3f2a2a;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
+}
+
+.pdImageWrap {
+    background: radial-gradient(circle at 50% 50%, rgba(220,38,38,0.28) 0%, transparent 70%);
+    border-radius: 24px;
+    padding: 12px;
+}
+
+.pdImage {
+    @apply w-52 h-52 object-contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 18px rgba(220,38,38,0.45));
+}
+
+.pdBasicInfo {
+    @apply flex flex-col gap-2 items-center sm:items-start;
+}
+
+.pdName {
+    @apply m-0 text-4xl capitalize font-extrabold;
+    color: var(--ink-900);
+    text-shadow: 0 0 16px rgba(220,38,38,0.35);
+}
+
+.pdId {
+    @apply text-xl font-bold;
+    color: var(--red-glow);
+}
+
+.pdTypes {
+    @apply flex gap-2 mt-2;
+}
+
+.pdType {
+    @apply px-3 py-1 rounded-full text-sm font-bold text-white capitalize;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+}
+.pdType-normal { @apply bg-gray-500; }
+.pdType-fire { @apply bg-orange-600; }
+.pdType-water { @apply bg-blue-600; }
+.pdType-electric { @apply bg-yellow-500 text-gray-900; }
+.pdType-grass { @apply bg-green-600; }
+.pdType-ice { @apply bg-cyan-500; }
+.pdType-fighting { @apply bg-red-800; }
+.pdType-poison { @apply bg-purple-600; }
+.pdType-ground { @apply bg-amber-700; }
+.pdType-flying { @apply bg-indigo-500; }
+.pdType-psychic { @apply bg-pink-600; }
+.pdType-bug { @apply bg-lime-700; }
+.pdType-rock { @apply bg-yellow-800; }
+.pdType-ghost { @apply bg-purple-800; }
+.pdType-dragon { @apply bg-indigo-800; }
+.pdType-dark { @apply bg-gray-900; }
+.pdType-steel { @apply bg-slate-500; }
+.pdType-fairy { @apply bg-pink-500; }
+
+.pdBody {
+    @apply flex flex-col gap-6;
+}
+
+.pdSection {
+    @apply p-5 rounded-2xl;
+    background: var(--surface);
+    border: 1px solid #3f2a2a;
+    box-shadow: var(--shadow-soft);
+    backdrop-filter: blur(6px);
+}
+
+.pdSection h3 {
+    @apply m-0 mb-4 text-xl font-bold;
+    color: var(--ink-900);
+}
+
+.pdInfoGrid {
+    @apply flex gap-8 flex-wrap;
+}
+
+.pdInfoItem {
+    @apply flex flex-col gap-1;
+}
+
+.pdInfoLabel {
+    @apply text-sm font-semibold;
+    color: var(--ink-500);
+}
+
+.pdInfoValue {
+    @apply text-2xl font-bold;
+    color: var(--ink-900);
+}
+
+.pdStats {
+    @apply flex flex-col gap-3;
+}
+
+.pdStatItem {
+    @apply flex items-center gap-3;
+}
+
+.pdStatName {
+    @apply w-24 text-sm font-semibold capitalize;
+    color: var(--ink-700);
+}
+
+.pdStatBarContainer {
+    @apply flex-1 h-4 rounded-full overflow-hidden;
+    background: #000a;
+    border: 1px solid #4a2a2a;
+}
+
+.pdStatBar {
+    @apply h-full rounded-full;
+    background: linear-gradient(120deg, var(--red) 0%, #f59e0b 100%);
+    box-shadow: 0 0 10px rgba(220,38,38,0.6);
+}
+
+.pdStatValue {
+    @apply w-10 text-right font-bold;
+    color: var(--ink-900);
+}
+
+.pdAbilities {
+    @apply flex flex-wrap gap-2;
+}
+
+.pdAbility {
+    @apply px-3 py-1 rounded-full text-sm font-semibold capitalize;
+    background: #2c2121;
+    border: 1px solid #4a2a2a;
+    color: #fecaca;
+}
